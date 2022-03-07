@@ -1,0 +1,23 @@
+.movie-details-container {
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+.movie-details-container h2 {
+  color: #ffffff;
+  font-size: 25px;
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+@media (min-width: 576px) {
+  .movie-details-container {
+    font-size: 48px;
+  }
+
+  .movie-details-container h2 {
+    font-size: 48px;
+  }
+}

@@ -1,11 +1,11 @@
-import { AuthContext } from 'AuthContext';
-import Button from 'components/Button';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory, useLocation } from 'react-router-dom';
+import { AuthContext } from 'AuthContext';
+import { saveAuthData } from 'util/storage';
 import { getTokenData } from 'util/auth';
 import { requestBackendLogin } from 'util/resquest';
-import { saveAuthData } from 'util/storage';
+
 import './styles.css';
 
 type FormData = {
@@ -58,13 +58,13 @@ const Login = () => {
         <div className="alert alert-danger">Erro ao tentar efetuar o login</div>
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-4">
+        <div className="mb">
           <input
             {...register('username', {
               required: 'Campo obrigatório',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Email inválido',
+                message: 'E-mail inválido',
               },
             })}
             type="text"
@@ -87,7 +87,7 @@ const Login = () => {
             className={`form-control base-input ${
               errors.password ? 'is-invalid' : ''
             }`}
-            placeholder="Password"
+            placeholder="Senha"
             name="password"
           />
           <div className="invalid-feedback d-block">
@@ -95,7 +95,9 @@ const Login = () => {
           </div>
         </div>
         <div className="login-submit">
-          <Button text="FAZER LOGIN" />
+          <button className="btn btn-primary">
+            <h6>FAZER LOGIN</h6>
+          </button>
         </div>
       </form>
     </div>

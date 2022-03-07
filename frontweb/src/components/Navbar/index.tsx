@@ -41,7 +41,7 @@ const Navbar = () => {
           <div className="nav-logout">
             <div className="nav-label">
               <a href="#logout" onClick={handleLogoutClick}>
-                Sair
+                SAIR
               </a>
             </div>
           </div>
